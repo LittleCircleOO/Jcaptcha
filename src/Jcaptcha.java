@@ -148,14 +148,14 @@ public class Jcaptcha {//验证码控制类
     }
 
     public static Color randomBColor(){//生成随机背景色
-        final int from = 100;//随机数最小值:代表背景底色亮度
+        final int from = 32;//随机数最小值:代表背景底色亮度,数值越小颜色越杂,混淆程度越高
         final int range = 256-from;//随机数范围
         Random random = new Random();//随机数生成器
         return new Color(from + random.nextInt(range),from + random.nextInt(range),from + random.nextInt(range));
     }
 
     public static Color randomFColor(){//生成随机前景色
-        final int to = 64;//随机数最大值:代表文字亮度
+        final int to = 96;//随机数最大值:代表文字亮度,数值越大文字越浅,混淆程度越高
         Random random = new Random();//随机数生成器
         return new Color(random.nextInt(to),random.nextInt(to),random.nextInt(to));
     }
@@ -169,7 +169,7 @@ public class Jcaptcha {//验证码控制类
 
         //画笔初始化
         Graphics g = image.getGraphics();
-        Font font = new Font("Cascadia Code",Font.BOLD,36);//设置字体
+        Font font = new Font("Cascadia Code",Font.BOLD,22);//设置字体
         //g.getFontMetrics(font).getHeight();自动根据字体放缩图片(暂未实现)
         //g.getFontMetrics(font).stringWidth(text);
         g.setFont(font);//设置字体
@@ -189,16 +189,19 @@ public class Jcaptcha {//验证码控制类
         g.drawRect(0,0,width-1,height-1);
 
         //绘制文本
+        Random random = new Random();
         for(int i=0;i<text.length();i++){
             g.setColor(randomFColor());//随机前景色,调整参数可调节画面效果
-            int x = width/text.length()*i;//均分图片宽度
+            int x = width/text.length()*i//均分图片宽度
+                    +random.nextInt(11);//水平间距随机
                     //+ g.getFontMetrics(font).getWidths()[0]/2;//加一半的字宽
-            int y = height/4*3;//四分之三的图片高度
+            //int y = height/4*3;//四分之三的图片高度
+            int y = height/3
+                    +random.nextInt(33);//垂直位置随机
             g.drawString(String.valueOf(text.charAt(i)),x,y);
         }
 
         //添加干扰线
-        Random random = new Random();
         g.setColor(randomFColor());
         g.drawLine(0,random.nextInt(height/2),width,height/2+random.nextInt(height/2));//左上到右下,确保干扰线覆盖
         g.drawLine(0,height/2+random.nextInt(height/2),width,random.nextInt(height/2));//右上到左下,确保干扰线覆盖
