@@ -18,3 +18,5 @@ A CAPTCHA generation and verification program with complete basic functions, wri
 IDEA用户，文件→项目结构，在弹出的窗口中点击左侧的“模块”，选择右侧的“依赖”选项卡，点击加号，选择jar包导入即可。
 
 eclipse用户，右键项目文件→构建路径，在弹出的窗口中添加jar包即可。
+
+## [各方法详细说明与基本用法](https://github.com/LittleCircleOO/Jcaptcha/wiki/%E5%90%84%E6%96%B9%E6%B3%95%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95)
