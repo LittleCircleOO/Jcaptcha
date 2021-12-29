@@ -1,9 +1,6 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -52,41 +49,6 @@ import java.util.Scanner;
  *   函数将在校验完成后返回boolean类型,true代表校验通过,false代表校验不通过
  *   按照当前的通行做法,验证码校验采取不区分大小写的方法
  */
-
-class Code {//验证码实体类
-    private final BufferedImage image;//验证码图
-    private final String text;//验证码文本备选列表,用于大小写模糊匹配
-
-    Code(BufferedImage image, String text) {
-        this.image = image;
-        this.text = text;
-    }
-
-    public BufferedImage getImage() {
-        return image;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public boolean equals(String input){//验证码校验
-        return text.equalsIgnoreCase(input);
-    }
-
-    public void saveImg(String outfile){//保存图片
-        File file = new File(outfile);
-        if(!outfile.matches(".*\\..*")){//缺失文件扩展名
-            outfile=outfile+".png";
-        }
-        String type = outfile.replaceAll(".*\\.","");
-        try {
-            ImageIO.write(image,type,file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
 
 class NegativeLengthException extends IllegalArgumentException {
     public NegativeLengthException() {
