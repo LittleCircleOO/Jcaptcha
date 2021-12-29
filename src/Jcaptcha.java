@@ -213,7 +213,8 @@ public class Jcaptcha {//验证码控制类
         //Test.testRandomText();
         //Test.testDrawPicture();
         //Test.testCreateCode();
-        Test.testEquals();
+        //Test.testEquals();
+        Test.testEqualsQuick();
         //Test.testType();
         //Test.testJcaptcha();
     }
@@ -271,6 +272,19 @@ class Test {//测试类
         System.out.println("input the Code in the Pic:");
         String input = scn.next();
         System.out.println(code.equals(input));
+    }
+
+    public static void testEqualsQuick(){//测试验证码生成与校验:简化版,无需输入生成参数
+        int len = 4;
+        Code code = Jcaptcha.createCode(len, true, true, true);
+        int width = len*25;//宽,根据字串长度自动放缩
+        int height = 50;//高
+        new ShowImage(width,height,code.getImage());//展示图片
+        System.out.println("input the Code in the Pic:");
+        Scanner scn = new Scanner(System.in);
+        String input = scn.next();
+        System.out.println(code.equals(input));
+        System.out.println(code.getText());
     }
 
     public static void testType(){//测试文件保存正则式
