@@ -173,6 +173,29 @@ public class Jcaptcha {//验证码控制类
         return image;
     }
 
+    public static void showImage(Code code){
+        int width = code.getText().length()*25;//宽,根据字串长度自动放缩
+        int height = 50;//高
+        Image img = code.getImage();
+        JFrame jf = new JFrame("预览");
+        jf.setSize(width*6/5,height*2);
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setLocationRelativeTo(null);
+        JLabel view = new JLabel(new ImageIcon(img));
+        jf.getContentPane().add(view);
+        jf.setVisible(true);
+    }
+
+    public static void showImage(int width,int height,Image img){
+        JFrame jf = new JFrame("预览");
+        jf.setSize(width*6/5,height*2);
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setLocationRelativeTo(null);
+        JLabel view = new JLabel(new ImageIcon(img));
+        jf.getContentPane().add(view);
+        jf.setVisible(true);
+    }
+
     public static void main(String[] args) {
         //Test.testRandomText();
         //Test.testDrawPicture();
@@ -201,7 +224,7 @@ class Test {//测试类
         int width = testtext.length()*25;//宽,根据字串长度自动放缩
         int height = 50;//高
         Image img = Jcaptcha.drawPicture(testtext);
-        new ShowImage(width,height,img);
+        Jcaptcha.showImage(width,height,img);
     }
 
     public static void outFontList(){//输出系统字体列表
@@ -219,9 +242,10 @@ class Test {//测试类
         int len = scn.nextInt();
         Code code = Jcaptcha.createCode(len, scn.nextBoolean(), scn.nextBoolean(), scn.nextBoolean());
         System.out.println(code.getText());//展示文字
-        int width = len*25;//宽,根据字串长度自动放缩
-        int height = 50;//高
-        new ShowImage(width,height,code.getImage());//展示图片
+        Jcaptcha.showImage(code);
+        //int width = len*25;//宽,根据字串长度自动放缩
+        //int height = 50;//高
+        //Jcaptcha.showImage(width,height,code.getImage());//展示图片
     }
 
     public static void testEquals(){//测试验证码生成与校验
@@ -230,9 +254,10 @@ class Test {//测试类
         Scanner scn = new Scanner(System.in);
         int len = scn.nextInt();
         Code code = Jcaptcha.createCode(len, scn.nextBoolean(), scn.nextBoolean(), scn.nextBoolean());
-        int width = len*25;//宽,根据字串长度自动放缩
-        int height = 50;//高
-        new ShowImage(width,height,code.getImage());//展示图片
+        Jcaptcha.showImage(code);
+        //int width = len*25;//宽,根据字串长度自动放缩
+        //int height = 50;//高
+        //new ShowImage(width,height,code.getImage());//展示图片
         System.out.println("input the Code in the Pic:");
         String input = scn.next();
         System.out.println(code.equals(input));
@@ -241,9 +266,10 @@ class Test {//测试类
     public static void testEqualsQuick(){//测试验证码生成与校验:简化版,无需输入生成参数
         int len = 4;
         Code code = Jcaptcha.createCode(len, true, true, true);
-        int width = len*25;//宽,根据字串长度自动放缩
-        int height = 50;//高
-        new ShowImage(width,height,code.getImage());//展示图片
+        Jcaptcha.showImage(code);
+        //int width = len*25;//宽,根据字串长度自动放缩
+        //int height = 50;//高
+        //new ShowImage(width,height,code.getImage());//展示图片
         System.out.println("input the Code in the Pic:");
         Scanner scn = new Scanner(System.in);
         String input = scn.next();
@@ -269,18 +295,19 @@ class Test {//测试类
         Scanner scn = new Scanner(System.in);
         int len = scn.nextInt();
         Code code = Jcaptcha.createCode(len, scn.nextBoolean(), scn.nextBoolean(), scn.nextBoolean());
-        int width = len*25;//宽,根据字串长度自动放缩
-        int height = 50;//高
+        //int width = len*25;//宽,根据字串长度自动放缩
+        //int height = 50;//高
         System.out.println("input savename:");
         String outfile = scn.next();
         code.saveImg(outfile);
-        new ShowImage(width,height,code.getImage());//展示图片
+        Jcaptcha.showImage(code);
+        //new ShowImage(width,height,code.getImage());//展示图片
         System.out.println("input the Code in the Pic:");
         String input = scn.next();
         System.out.println(code.equals(input));
     }
 }
-
+/*
 class ShowImage extends JFrame{//图片预览类
     public ShowImage(int width,int height,Image img){
         super("预览");
@@ -291,4 +318,4 @@ class ShowImage extends JFrame{//图片预览类
         getContentPane().add(view);
         setVisible(true);
     }
-}
+}*/
