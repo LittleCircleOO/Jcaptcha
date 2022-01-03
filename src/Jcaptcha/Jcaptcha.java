@@ -166,20 +166,14 @@ public class Jcaptcha {//验证码控制类
         return image;
     }
 
-    public static void showImage(Code code){
+    public static void showImage(Code code){//展示验证码图片
         int width = code.getText().length()*25;//宽,根据字串长度自动放缩
         int height = 50;//高
         Image img = code.getImage();
-        JFrame jf = new JFrame("预览");
-        jf.setSize(width*6/5,height*2);
-        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jf.setLocationRelativeTo(null);
-        JLabel view = new JLabel(new ImageIcon(img));
-        jf.getContentPane().add(view);
-        jf.setVisible(true);
+        showImage(width,height,img);
     }
 
-    public static void showImage(int width,int height,Image img){
+    public static void showImage(int width,int height,Image img){//展示特定图片
         JFrame jf = new JFrame("预览");
         jf.setSize(width*6/5,height*2);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
