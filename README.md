@@ -15,7 +15,7 @@ A CAPTCHA generation and verification program with complete basic functions, wri
 ### 以外部依赖引入
 从[release](https://github.com/LittleCircleOO/Jcaptcha/releases)下载jar包，将其导入项目的外部依赖中。
 
-IDEA用户，文件→项目结构，在弹出的窗口中点击左侧的“模块”，选择右侧的“依赖”选项卡，点击加号，选择jar包导入即可。
+IDEA用户，文件→项目结构，在弹出的窗口中点击左侧的“模块”，选择右侧的“依赖”选项卡，点击加号→2 库→Java，选择jar包导入即可。
 
 eclipse用户，右键项目文件→构建路径，在弹出的窗口中添加jar包即可。
 
