@@ -9,13 +9,6 @@ import java.util.Scanner;
 /**
  * 各类与方法说明:
  *
- * Code:验证码实体类,可以对已生成的验证码进行操作;
- *   Code:构造函数,供生成方法调用,无需理会;
- *   getImage:获取该验证码对象的图片内容;
- *   getText:获取该验证码对象的文字内容;
- *   equals(String input):将该验证码与给定字符串作匹配(无视大小写),返回匹配结果;
- *   saveImg(String outfile):以给定文件名与路径输出验证码图片,便于其他程序的接入;
- *
  * NegativeLengthException:异常类:当验证码长度为负时触发;
  *
  * JCaptcha:验证码生成类,可通过参数生成验证码实体对象;
@@ -30,11 +23,11 @@ import java.util.Scanner;
  *   randomBColor():生成随机背景颜色,以便利用随机颜色覆盖背景的每个像素点;
  *   randomFColor():生成随机文字颜色与干扰线颜色;
  *   drawPicture(String text):将字符串绘制为验证码图片,返回 BufferedImage 类型;
+ *   showImage:借助图形化界面展示验证码图片;
  *   main方法:无实际含义,供单元测试使用
  *
  * Test:测试类,提供各模块的测试方法,通过终端输入,并将结果输出至终端;
  *
- * ShowImage:借助图形化界面展示验证码图片,继承自JFrame;
  *
  * 用法:
  * 生成验证码:Code code = Jcaptcha.createCode(length, containsUpper, containsLower, containsNumber);

@@ -15,26 +15,6 @@ import java.io.IOException;
  *   equals(String input):将该验证码与给定字符串作匹配(无视大小写),返回匹配结果;
  *   saveImg(String outfile):以给定文件名与路径输出验证码图片,便于其他程序的接入;
  *
- * NegativeLengthException:异常类:当验证码长度为负时触发;
- *
- * JCaptcha:验证码生成类,可通过参数生成验证码实体对象;
- *   createCode():创建验证码:重载形式1:创建一个4位的,可包含大小写字母与数字的验证码;
- *   createCode(int length):创建验证码:重载形式2:创建一个指定位数,可包含大小写字母与数字的验证码;
- *   createCode//创建验证码:重载形式3:可自定义验证码的生成长度与字符范围
- *     (int length,//长度
- *      boolean containsUpper,//包含大写
- *      boolean containsLower,//包含小写
- *      boolean containsNumber)//包含数字
- *   randomText(<参数同上>):生成一段符合要求的随机字符串
- *   randomBColor():生成随机背景颜色,以便利用随机颜色覆盖背景的每个像素点;
- *   randomFColor():生成随机文字颜色与干扰线颜色;
- *   drawPicture(String text):将字符串绘制为验证码图片,返回 BufferedImage 类型;
- *   main方法:无实际含义,供单元测试使用
- *
- * Test:测试类,提供各模块的测试方法,通过终端输入,并将结果输出至终端;
- *
- * ShowImage:借助图形化界面展示验证码图片,继承自JFrame;
- *
  * 用法:
  * 生成验证码:Code code = Jcaptcha.createCode(length, containsUpper, containsLower, containsNumber);
  *   length:int,验证码总长度;
