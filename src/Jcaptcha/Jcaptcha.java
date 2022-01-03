@@ -257,7 +257,7 @@ class Test {//测试类
         Jcaptcha.showImage(code);
         //int width = len*25;//宽,根据字串长度自动放缩
         //int height = 50;//高
-        //new ShowImage(width,height,code.getImage());//展示图片
+        //Jcaptcha.showImage(width,height,code.getImage());//展示图片
         System.out.println("input the Code in the Pic:");
         String input = scn.next();
         System.out.println(code.equals(input));
@@ -269,7 +269,7 @@ class Test {//测试类
         Jcaptcha.showImage(code);
         //int width = len*25;//宽,根据字串长度自动放缩
         //int height = 50;//高
-        //new ShowImage(width,height,code.getImage());//展示图片
+        //Jcaptcha.showImage(width,height,code.getImage());//展示图片
         System.out.println("input the Code in the Pic:");
         Scanner scn = new Scanner(System.in);
         String input = scn.next();
@@ -301,21 +301,9 @@ class Test {//测试类
         String outfile = scn.next();
         code.saveImg(outfile);
         Jcaptcha.showImage(code);
-        //new ShowImage(width,height,code.getImage());//展示图片
+        //Jcaptcha.showImage(width,height,code.getImage());//展示图片
         System.out.println("input the Code in the Pic:");
         String input = scn.next();
         System.out.println(code.equals(input));
     }
 }
-/*
-class ShowImage extends JFrame{//图片预览类
-    public ShowImage(int width,int height,Image img){
-        super("预览");
-        setSize(width*6/5,height*2);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        JLabel view = new JLabel(new ImageIcon(img));
-        getContentPane().add(view);
-        setVisible(true);
-    }
-}*/
