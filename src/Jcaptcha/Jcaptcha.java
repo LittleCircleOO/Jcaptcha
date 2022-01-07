@@ -167,8 +167,10 @@ public class Jcaptcha {//验证码控制类
     }
 
     public static void showImage(Code code){//展示验证码图片
-        int width = code.getText().length()*25;//宽,根据字串长度自动放缩
-        int height = 50;//高
+        //int width = code.getText().length()*25;//宽,根据字串长度自动放缩
+        //int height = 50;//高
+        int width = code.getImage().getWidth();
+        int height = code.getImage().getHeight();
         Image img = code.getImage();
         showImage(width,height,img);
     }
